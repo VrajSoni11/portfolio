@@ -80,7 +80,7 @@ export default function Contact() {
       </div>
 
       <div className="border-t-4 border-ink-950 pt-6 md:pt-8 max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-950 font-bold uppercase tracking-wide">
-        <span>© {new Date().getFullYear()} {personal.name}. Built from scratch.</span>
+        <span>© {new Date().getFullYear()} {personal.name}</span>
         <span>{personal.role}</span>
       </div>
     </section>
