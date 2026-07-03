@@ -10,7 +10,7 @@ const NUMBER_COLORS = ["bg-blue-500", "bg-yellow-500", "bg-pink-500", "bg-magent
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative bg-lime-500 px-4 sm:px-6 md:px-12 pt-20 md:pt-28 pb-16 border-t-4 border-ink-950">
+    <section id="projects" className="relative bg-transparent px-4 sm:px-6 md:px-12 pt-20 md:pt-28 pb-16 border-t-4 border-ink-950">
       <div className="max-w-5xl mx-auto mb-14 md:mb-20">
         <FadeIn>
           <p className="inline-block font-bold text-xs md:text-sm uppercase tracking-widest bg-ink-950 text-lime-500 px-4 py-1.5 mb-8 brutal-border">

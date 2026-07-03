@@ -25,7 +25,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col bg-lime-500">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col bg-transparent">
       {/* ---------- NAVBAR ---------- */}
       <motion.nav
         initial={{ opacity: 0, y: -20 }}

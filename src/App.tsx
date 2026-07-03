@@ -9,7 +9,7 @@ import Contact from "./sections/Contact";
 
 function App() {
   return (
-    <div className="bg-base-950">
+    <div className="bg-lime-500">
       <Hero />
       <About />
       <Skills />

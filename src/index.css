@@ -11,21 +11,21 @@
   --font-body: "Inter", "Segoe UI", sans-serif;
 
   /* Base surface */
-  --color-lime-500: #c4f542; /* primary page background */
-  --color-lime-400: #d6ff6b; /* lighter panel variant */
-  --color-lime-600: #a8d637; /* pressed/darker variant */
+  --color-lime-500: #ffffff; /* primary page background */
+  --color-lime-400: #f0f7ee; /* lighter panel variant */
+  --color-lime-600: #d7eedd; /* pressed/darker variant */
 
   /* Ink — brutalism runs on near-black, not soft gray */
   --color-ink-950: #0a0a0a;
-  --color-ink-700: #2a2a2a;
+  --color-ink-700: #292929;
   --color-ink-500: #4a4a4a;
 
   /* Bold accent rotation — assigned deliberately per section, not random */
-  --color-blue-500: #2e5eff;
-  --color-yellow-500: #ffe135;
-  --color-pink-500: #ff3fa4;
-  --color-magenta-500: #d100d1;
-  --color-teal-500: #00c2a8;
+  --color-blue-500: #ee7fc5;
+  --color-yellow-500: #f6dca1;
+  --color-pink-500: #7b91b9;
+  --color-magenta-500: #8b4e7b;
+  --color-teal-500: #98e78c;
 
   /* Pure white — used as a card surface against the lime background so
      cards read as distinct blocks, brutalist color-field style */
@@ -40,7 +40,13 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--color-lime-500);
+  min-height: 100%;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(152, 231, 140, 0.08), transparent 50%, rgba(152, 231, 140, 0.08)),
+    var(--color-lime-500);
+  background-size: 48px 48px, 100% 100%, 24px 24px;
   color: var(--color-ink-950);
   font-family: var(--font-body);
   scroll-behavior: smooth;

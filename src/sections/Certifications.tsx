@@ -9,7 +9,7 @@ const BADGE_COLORS = ["bg-magenta-500", "bg-blue-500", "bg-yellow-500", "bg-teal
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="relative bg-lime-500 px-4 sm:px-6 md:px-12 py-20 md:py-28 border-t-4 border-ink-950">
+    <section id="certifications" className="relative bg-transparent px-4 sm:px-6 md:px-12 py-20 md:py-28 border-t-4 border-ink-950">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <p className="inline-block font-bold text-xs md:text-sm uppercase tracking-widest bg-ink-950 text-lime-500 px-4 py-1.5 mb-8 brutal-border">

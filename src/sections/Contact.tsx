@@ -16,7 +16,7 @@ const SOCIAL_LINKS = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative bg-lime-500 px-4 sm:px-6 md:px-12 pt-20 md:pt-28 pb-10 border-t-4 border-ink-950">
+    <section id="contact" className="relative bg-transparent px-4 sm:px-6 md:px-12 pt-20 md:pt-28 pb-10 border-t-4 border-ink-950">
       <div className="max-w-5xl mx-auto text-center">
         <FadeIn>
           <p className="inline-block font-bold text-xs md:text-sm uppercase tracking-widest bg-ink-950 text-lime-500 px-4 py-1.5 mb-8 brutal-border">
