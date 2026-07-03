@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   BRUTALIST THEME — full replacement of the previous dark/soft palette.
+   Lime background, thick black borders/type, rotating bold accent colors.
+   Zero border-radius anywhere. Hard offset shadows, not blur. Snappy
+   instant-feeling transitions, not smooth eases.
+   ========================================================================== */
+@theme {
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+
+  /* Base surface */
+  --color-lime-500: #c4f542; /* primary page background */
+  --color-lime-400: #d6ff6b; /* lighter panel variant */
+  --color-lime-600: #a8d637; /* pressed/darker variant */
+
+  /* Ink — brutalism runs on near-black, not soft gray */
+  --color-ink-950: #0a0a0a;
+  --color-ink-700: #2a2a2a;
+  --color-ink-500: #4a4a4a;
+
+  /* Bold accent rotation — assigned deliberately per section, not random */
+  --color-blue-500: #2e5eff;
+  --color-yellow-500: #ffe135;
+  --color-pink-500: #ff3fa4;
+  --color-magenta-500: #d100d1;
+  --color-teal-500: #00c2a8;
+
+  /* Pure white — used as a card surface against the lime background so
+     cards read as distinct blocks, brutalist color-field style */
+  --color-paper: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-lime-500);
+  color: var(--color-ink-950);
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+#root {
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-ink-950);
+  color: var(--color-lime-500);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-lime-500);
+  border-left: 2px solid var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-950);
+}
+
+/* ==========================================================================
+   BRUTALIST UTILITY CLASSES — reused across every section instead of
+   repeating the same border/shadow combo inline everywhere.
+   ========================================================================== */
+
+/* Standard hard block border, used on every card/button/pill */
+.brutal-border {
+  border: 3px solid var(--color-ink-950);
+}
+
+/* The signature brutalist offset shadow — a solid black block behind the
+   element, not a soft blur. Comes in two sizes. */
+.brutal-shadow {
+  box-shadow: 6px 6px 0 0 var(--color-ink-950);
+}
+.brutal-shadow-sm {
+  box-shadow: 4px 4px 0 0 var(--color-ink-950);
+}
+.brutal-shadow-lg {
+  box-shadow: 10px 10px 0 0 var(--color-ink-950);
+}
+
+/* Snappy press effect — on click/hover, element moves INTO its own shadow
+   rather than smoothly transitioning color. This is the core brutalist
+   interaction pattern: instant, mechanical, physical-feeling. */
+.brutal-press {
+  transition: transform 100ms linear, box-shadow 100ms linear;
+}
+.brutal-press:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 0 var(--color-ink-950);
+}
+.brutal-press:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 0 var(--color-ink-950);
+}
