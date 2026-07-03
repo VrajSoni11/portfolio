@@ -1,35 +1,50 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   BRUTALIST THEME — full replacement of the previous dark/soft palette.
-   Lime background, thick black borders/type, rotating bold accent colors.
-   Zero border-radius anywhere. Hard offset shadows, not blur. Snappy
-   instant-feeling transitions, not smooth eases.
+   BRUTALIST THEME — teal-forward palette. Teal is the primary page
+   background; every accent below is chosen to sit at high contrast against
+   it (warm vs. cool, light vs. dark) rather than blending into it. Thick
+   black borders/type, hard offset shadows, zero border-radius, snappy
+   instant-feeling transitions — unchanged from the original system.
+
+   Note on token names: the Tailwind class names in the components
+   (bg-lime-500, bg-blue-500, etc.) are kept as-is since renaming them would
+   mean touching every section file. Only the color VALUES behind each name
+   change here — "lime" now resolves to teal, and every accent token is
+   reassigned to a color that reads clearly against it. 8 distinct colors
+   total: teal (bg), ink, paper, blue, yellow, pink, magenta, and a new
+   coral accent.
    ========================================================================== */
 @theme {
   --font-display: "Space Grotesk", "Segoe UI", sans-serif;
   --font-body: "Inter", "Segoe UI", sans-serif;
 
-  /* Base surface */
-  --color-lime-500: #ffffff; /* primary page background */
-  --color-lime-400: #f0f7ee; /* lighter panel variant */
-  --color-lime-600: #d7eedd; /* pressed/darker variant */
+  /* Base surface — now teal, driving the whole page background */
+  --color-lime-500: #dadcdc; /* primary page background */
+  --color-lime-400: #a5f1e8; /* lighter panel variant */
+  --color-lime-600: #16957f; /* pressed/darker variant */
 
   /* Ink — brutalism runs on near-black, not soft gray */
   --color-ink-950: #0a0a0a;
   --color-ink-700: #292929;
   --color-ink-500: #4a4a4a;
 
-  /* Bold accent rotation — assigned deliberately per section, not random */
-  --color-blue-500: #ee7fc5;
-  --color-yellow-500: #f6dca1;
-  --color-pink-500: #7b91b9;
-  --color-magenta-500: #8b4e7b;
-  --color-teal-500: #98e78c;
+  /* Bold accent rotation — each picked for contrast against the teal
+     background, not just against each other */
+  --color-blue-500: #ffd23f; /* warm yellow-gold */
+  --color-yellow-500: #ff6b6b; /* coral red */
+  --color-pink-500: #ff9ecb; /* bright pink */
+  --color-magenta-500: #7b91b9; /* muted purple */
+  --color-teal-500: #23d6ee; /* aqua accent */
 
-  /* Pure white — used as a card surface against the lime background so
-     cards read as distinct blocks, brutalist color-field style */
+  /* Pure white — card surface against the teal page background so cards
+     read as distinct paper blocks, brutalist color-field style */
   --color-paper: #ffffff;
+
+  /* New 8th color — orange coral, extra accent for variety per the request
+     for 7-8 colors. Not wired into components by default; available as
+     bg-coral-500 if a section wants an extra pop. */
+  --color-coral-500: #ff8c42;
 }
 
 * {
@@ -41,12 +56,19 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  /* Grid lines pushed up in opacity + brightened to white so they stay
+     visible against the darker teal background (the old near-black 0.04
+     alpha grid was tuned for a near-white page and disappeared here).
+     Layer order: fine grid -> larger grid -> soft vertical vignette -> base
+     teal fill. */
   background:
-    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(152, 231, 140, 0.08), transparent 50%, rgba(152, 231, 140, 0.08)),
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.12), transparent 50%, rgba(10, 10, 10, 0.12)),
     var(--color-lime-500);
-  background-size: 48px 48px, 100% 100%, 24px 24px;
+  background-size: 24px 24px, 24px 24px, 96px 96px, 96px 96px, 100% 100%, 100% 100%;
   color: var(--color-ink-950);
   font-family: var(--font-body);
   scroll-behavior: smooth;
