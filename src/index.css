@@ -20,7 +20,7 @@
   --font-body: "Inter", "Segoe UI", sans-serif;
 
   /* Base surface — now teal, driving the whole page background */
-  --color-lime-500: #dadcdc; /* primary page background */
+  --color-lime-500: #fff; /* primary page background */
   --color-lime-400: #a5f1e8; /* lighter panel variant */
   --color-lime-600: #16957f; /* pressed/darker variant */
 
