@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { personal, heroWords } from "../config/content";
+import ThemeToggle from "../components/ThemeToggle";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -38,13 +39,14 @@ export default function Hero() {
             <a
               key={link.href}
               href={link.href}
-              className="text-xs lg:text-sm font-bold uppercase tracking-wide text-ink-950 px-3 py-2 border-2 border-transparent hover:border-ink-950 hover:bg-yellow-500 transition-colors duration-100"
+              className="text-xs lg:text-sm font-bold uppercase tracking-wide text-ink-950 px-3 py-2 border-2 border-transparent hover:border-ink-950 hover:bg-yellow-500 hover:text-chip-ink transition-colors duration-100"
             >
               {link.label}
             </a>
           ))}
         </div>
         <div className="flex items-center gap-2 md:gap-3">
+          <ThemeToggle />
           <a
             href={personal.github}
             target="_blank"
@@ -93,7 +95,7 @@ export default function Hero() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -40, opacity: 0 }}
               transition={{ duration: 0.25, ease: "linear" }}
-              className={`font-display font-bold text-sm md:text-lg text-ink-950 px-4 py-2 brutal-border ${WORD_COLORS[wordIndex]}`}
+              className={`font-display font-bold text-sm md:text-lg text-chip-ink px-4 py-2 brutal-border ${WORD_COLORS[wordIndex]}`}
             >
               {heroWords[wordIndex]}
             </motion.div>
@@ -189,7 +191,7 @@ function PortraitBlock() {
           }}
         />
         <div className="absolute inset-0 flex items-center justify-center bg-yellow-500 -z-10">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-ink-950 text-center px-4">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-chip-ink text-center px-4">
             Add photo.jpg
             <br />
             to /public

@@ -55,7 +55,7 @@ function LanguagePill({ label, index, color }: { label: string; index: number; c
       initial={{ opacity: 0, scale: 0.8 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.3, delay: index * 0.05, ease: [0.2, 0.8, 0.3, 1] }}
-      className={`${color} px-5 py-2.5 md:px-6 md:py-3 brutal-border brutal-shadow-sm brutal-press text-ink-950 font-display font-bold text-sm md:text-base cursor-default select-none`}
+      className={`${color} px-5 py-2.5 md:px-6 md:py-3 brutal-border brutal-shadow-sm brutal-press text-chip-ink font-display font-bold text-sm md:text-base cursor-default select-none`}
     >
       {label}
     </motion.span>
@@ -90,9 +90,7 @@ function SkillCard({
       </h3>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <span key={skill} className="text-xs md:text-sm px-3 py-1.5 bg-lime-500 text-ink-950 font-medium border-2 border-ink-950">
-            {skill}
-          </span>
+          <span key={skill} className="text-xs md:text-sm px-3 py-1.5 bg-chip-bg text-chip-ink font-medium border-2 border-ink-950">{skill}</span>
         ))}
       </div>
     </motion.div>

@@ -45,6 +45,82 @@
      for 7-8 colors. Not wired into components by default; available as
      bg-coral-500 if a section wants an extra pop. */
   --color-coral-500: #ff8c42;
+
+  /* CHIP-INK — a fixed near-black used ONLY for text that sits directly on
+     a bright accent chip (bg-blue-500, bg-yellow-500, the rotating {color}
+     pills in Skills/Projects/Education/Hero, etc). This is deliberately a
+     SEPARATE token from --color-ink-950.
+
+     Why: --color-ink-950 flips polarity between themes (near-black in
+     light mode, near-white in dark mode) because it's the PAGE/CARD text
+     color and needs to contrast against a page background that itself
+     flips polarity. But chip labels are a different case — they sit on a
+     bright accent color that stays bright-ish in BOTH themes, so the text
+     on top of a chip should stay dark in both themes too. Reusing
+     --color-ink-950 for chip text would mean chip labels turn near-white
+     in dark mode, sitting on a still-bright chip background — a real
+     contrast failure (~2:1), not just a style preference. --color-chip-ink
+     stays constant so every chip/pill/badge stays legible regardless of
+     theme. See the components that use `text-chip-ink` instead of
+     `text-ink-950` specifically for this reason. */
+  --color-chip-ink: #0a0a0a;
+
+  /* CHIP-BG — a fixed light neutral, paired with --color-chip-ink.
+
+     A few small tags (skill tags, tech-stack pills, the cert issuer/date
+     pill) originally used `bg-lime-500` as a "plain light chip" background
+     — NOT as the page background, just borrowing that token because it
+     happened to be white. That reuse breaks once --color-lime-500 becomes
+     the DARK theme's near-black page color: bg-lime-500 + text-ink-950
+     would render near-black text on a near-black chip (~1:1 contrast,
+     invisible). --color-chip-bg exists so these specific tags have their
+     own light background that stays light in both themes, independent of
+     what the page background is doing. Paired with text-chip-ink. */
+  --color-chip-bg: #f0efe8;
+}
+
+/* ==========================================================================
+   DARK THEME OVERRIDE — same token names, inverted-and-retuned values.
+
+   Tailwind v4 compiles utilities like `bg-lime-500` to `background-color:
+   var(--color-lime-500)`, so redefining the variables here re-themes every
+   component with zero className changes. Toggle by adding/removing the
+   `dark` class on a high-level wrapper (see ThemeToggle + useTheme).
+
+   Design intent, not just an inverted filter: the page base goes to a warm
+   near-black charcoal (not flat #000, which reads flat/default) with a
+   visible lift for "paper" card surfaces so cards still read as distinct
+   blocks. Ink and paper swap roles (ink -> near-white, paper -> dark
+   slate). Borders/shadows key off --color-ink-950 already, so the hard
+   border + offset-shadow brutalist signature auto-flips to light-on-dark
+   for free. Every accent is independently retuned brighter/more saturated
+   for legibility against near-black — not the same hex dimmed or inverted,
+   so dark mode has its own identity rather than feeling like a CSS filter.
+   ========================================================================== */
+.dark {
+  /* Base surface — warm near-black charcoal, not flat #000 */
+  --color-lime-500: #101114;
+  --color-lime-400: #1c1e23; /* lighter panel variant, used for subtle lift */
+  --color-lime-600: #050506; /* pressed/darker variant */
+
+  /* Ink now near-white; paper becomes the dark card surface a shade
+     lighter than the page background so cards still separate visually */
+  --color-ink-950: #f5f4f0;
+  --color-ink-700: #c9c7c0;
+  --color-ink-500: #8f8d87;
+
+  /* Accents retuned brighter/more saturated for contrast against
+     near-black — each distinct from its light-mode counterpart */
+  --color-blue-500: #5eb1ff; /* electric blue */
+  --color-yellow-500: #f4e04d; /* acid yellow */
+  --color-pink-500: #ff5fa8; /* hot magenta-pink */
+  --color-magenta-500: #b98bff; /* violet */
+  --color-teal-500: #2ee6c9; /* neon teal */
+
+  /* Paper — dark slate card surface, distinct from the page background */
+  --color-paper: #1a1b1f;
+
+  --color-coral-500: #ff9d5c;
 }
 
 * {
@@ -72,6 +148,45 @@ body {
   color: var(--color-ink-950);
   font-family: var(--font-body);
   scroll-behavior: smooth;
+}
+
+/* Dark-mode background layer override. The light-mode grid above uses
+   hardcoded rgba() white grid-lines + a black vignette, tuned specifically
+   for a light/teal base — those don't reference CSS variables, so the
+   `.dark` variable swap above doesn't touch them automatically. Re-tuned
+   here: dimmer grid-lines (a bright white grid on near-black reads harsh)
+   and a lighter vignette (the black one from light mode would vanish
+   against a near-black page). */
+.dark html,
+.dark body {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 50%, rgba(255, 255, 255, 0.05)),
+    var(--color-lime-500);
+  background-size: 24px 24px, 24px 24px, 96px 96px, 96px 96px, 100% 100%, 100% 100%;
+}
+
+/* Smooth cross-fade when the theme is toggled, instead of an instant snap.
+   Deliberately does NOT set a box-shadow transition here: many elements
+   carry brutal-shadow* AND brutal-press together, and brutal-press already
+   owns box-shadow (100ms linear, for the snappy press-into-shadow
+   interaction). Overlapping the same property from two same-specificity
+   rules is the exact "selectors cancel each other out" trap — it would
+   come down to source order rather than being an explicit choice.
+   Background/border-color are never touched by brutal-press, so those are
+   safe to transition here without collision. */
+html {
+  transition: background-color 200ms ease, color 200ms ease;
+}
+body,
+.brutal-border,
+.brutal-shadow,
+.brutal-shadow-sm,
+.brutal-shadow-lg {
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
 }
 
 #root {

@@ -56,11 +56,11 @@ function Stat({
   const { ref, value: animated } = useCountUp(value, 1000, decimals);
   return (
     <div ref={ref} className={`${color} brutal-border brutal-shadow-sm p-4 md:p-6`}>
-      <p className="font-display text-2xl md:text-4xl font-bold text-ink-950">
+      <p className="font-display text-2xl md:text-4xl font-bold text-chip-ink">
         {animated}
         {suffix}
       </p>
-      <p className="text-xs md:text-sm text-ink-950 mt-1 font-bold uppercase tracking-wide">{label}</p>
+      <p className="text-xs md:text-sm text-chip-ink mt-1 font-bold uppercase tracking-wide">{label}</p>
     </div>
   );
 }

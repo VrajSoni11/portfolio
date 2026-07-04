@@ -59,7 +59,7 @@ function StackCard({
       >
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
           <div className="flex items-start gap-4 md:gap-6">
-            <span className={`font-display text-2xl md:text-4xl font-bold text-ink-950 ${color} px-3 py-1.5 brutal-border shrink-0`}>
+            <span className={`font-display text-2xl md:text-4xl font-bold text-chip-ink ${color} px-3 py-1.5 brutal-border shrink-0`}>
               {String(index + 1).padStart(2, "0")}
             </span>
             <div>
@@ -70,7 +70,7 @@ function StackCard({
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-[10px] md:text-xs px-2.5 py-1 bg-lime-500 text-ink-950 font-bold uppercase tracking-wide border-2 border-ink-950"
+                    className="text-[10px] md:text-xs px-2.5 py-1 bg-chip-bg text-chip-ink font-bold uppercase tracking-wide border-2 border-ink-950"
                   >
                     {tech}
                   </span>

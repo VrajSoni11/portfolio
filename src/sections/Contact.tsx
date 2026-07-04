@@ -37,7 +37,7 @@ export default function Contact() {
         <FadeIn delay={0.4}>
           <a
             href={`mailto:${personal.email}`}
-            className="group inline-flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 bg-blue-500 text-ink-950 font-display font-bold text-base md:text-lg mb-14 md:mb-20 brutal-border brutal-shadow brutal-press"
+            className="group inline-flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 bg-blue-500 text-chip-ink font-display font-bold text-base md:text-lg mb-14 md:mb-20 brutal-border brutal-shadow brutal-press"
           >
             Say hello
             <span className="w-8 h-8 md:w-9 md:h-9 bg-ink-950 text-lime-500 flex items-center justify-center brutal-border">
@@ -57,7 +57,7 @@ export default function Contact() {
               {link.label}
             </a>
           ))}
-          <span className="flex items-center gap-2 text-sm md:text-base text-ink-950 font-bold bg-yellow-500 px-4 py-2 brutal-border w-fit">
+          <span className="flex items-center gap-2 text-sm md:text-base text-chip-ink font-bold bg-yellow-500 px-4 py-2 brutal-border w-fit">
             <MapPin size={16} />
             {personal.location}
           </span>

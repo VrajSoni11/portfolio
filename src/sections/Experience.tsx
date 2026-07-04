@@ -26,13 +26,13 @@ export default function Experience() {
                 <div
                   className={`hidden md:flex absolute left-0 top-1 w-14 h-14 ${NODE_COLORS[i % NODE_COLORS.length]} brutal-border items-center justify-center`}
                 >
-                  <Briefcase size={20} className="text-ink-950" />
+                  <Briefcase size={20} className="text-chip-ink" />
                 </div>
 
                 <div className="bg-paper brutal-border brutal-shadow p-6 md:p-8">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
                     <h3 className="font-display text-lg md:text-xl font-bold text-ink-950">{role.role}</h3>
-                    <span className="text-xs md:text-sm font-bold text-ink-950 bg-yellow-500 px-2 py-0.5 uppercase tracking-widest shrink-0 border-2 border-ink-950 w-fit">
+                    <span className="text-xs md:text-sm font-bold text-chip-ink bg-yellow-500 px-2 py-0.5 uppercase tracking-widest shrink-0 border-2 border-ink-950 w-fit">
                       {role.date}
                     </span>
                   </div>

@@ -23,7 +23,7 @@ export default function Education() {
             <FadeIn key={entry.stage} delay={i * 0.1}>
               <div className="bg-paper brutal-border brutal-shadow-sm p-5 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                 <span
-                  className={`font-display text-3xl md:text-5xl font-bold text-ink-950 ${STAGE_COLORS[i % STAGE_COLORS.length]} px-4 py-2 brutal-border shrink-0 w-fit`}
+                  className={`font-display text-3xl md:text-5xl font-bold text-chip-ink ${STAGE_COLORS[i % STAGE_COLORS.length]} px-4 py-2 brutal-border shrink-0 w-fit`}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
