@@ -18,7 +18,7 @@ export default function Projects() {
           </p>
         </FadeIn>
         <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] uppercase text-ink-950 max-w-3xl">
-          <WordsReveal text="Six builds, each one a different problem." accentWords={["Six", "builds,"]} accentClassName="bg-teal-500 px-1" />
+          <WordsReveal text="Eight builds, each one a different problem." accentWords={["Eight", "builds,"]} accentClassName="bg-teal-500 px-1" />
         </h2>
       </div>
 

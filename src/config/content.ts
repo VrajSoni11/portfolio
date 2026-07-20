@@ -140,6 +140,20 @@ export const projects: Project[] = [
       "Built a full-stack internal analytics and warehouse operations dashboard for a multi-channel e-commerce business using the Linnworks WMS platform. Designed and developed the entire application — from the authenticated Node.js server to the interactive browser UI — without any framework. Responsibilities included: implementing Microsoft OAuth 2.0 SSO with persistent 30-day sessions stored in Azure SQL; building five analytics modules (top products, slow movers, zero-movement inventory, WMS bin rack analysis, and grouped pack-size normalisation); integrating Linnworks REST APIs for real-time inventory and order data; designing a Pickwave dashboard with a two-column live/archived detail view, server-side background polling every two minutes, and DB snapshot persistence so completed wave data survives Linnworks purging it; and implementing an Excel export feature. Also optimised API efficiency with token caching and batch stock-level lookups.",
   },
   {
+    title: "EcoSphere — ESG Management Platform",
+    stack: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma"],
+    github: "https://github.com/VrajSoni11/ESGMS",
+    description:
+      "Full-stack ESG (Environmental, Social, Governance) management platform replacing scattered spreadsheets with a single live, weighted ESG score per organization. Tracks carbon transactions with automatic CO2e calculation, CSR activities with proof-of-evidence approval workflows, and compliance issues with mandatory ownership and automatic overdue flagging via a scheduled cron job. Layers in gamification — XP, badges, leaderboards, and a points-based reward catalog — to make ESG participation genuinely engaging for employees, alongside a custom report builder exporting to CSV, Excel, and PDF.",
+  },
+  {
+    title: "LoadWatch",
+    stack: ["Python", "scikit-learn", "XGBoost", "LightGBM", "SHAP", "Streamlit"],
+    github: "https://github.com/VrajSoni11/LoadWatch",
+    description:
+      "A machine learning pipeline predicting the severity and length of a footballer's injury layoff, trained on 656 real injury events across 8 English Premier League clubs. Built as a full auditable pipeline — data cleaning, EDA, feature engineering, time-based train/val/test splitting, tuned gradient-boosted models, and SHAP explainability — culminating in a Streamlit web app for exploring injury history and simulating hypothetical injury scenarios on real 2025/26 players. The standout finding: the injury description text itself (e.g. 'rupture' vs. 'sprain') carried far more predictive signal than pre-injury match performance.",
+  },
+  {
     title: "Online Exam Proctoring System",
     stack: ["Python", "OpenCV", "MediaPipe", "HTML", "CSS", "JS"],
     github: "https://github.com/VrajSoni11/Online-Exam-Proctoring",
