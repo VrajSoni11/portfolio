@@ -31,7 +31,7 @@ export default function About() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
           <Stat value={8.98} decimals={2} label="CGPA" color={STAT_COLORS[0]} />
-          <Stat value={7} label="Projects Done" color={STAT_COLORS[1]} />
+          <Stat value={9} label="Projects Done" color={STAT_COLORS[1]} />
           <Stat value={2} label="Internships" color={STAT_COLORS[2]} />
           <Stat value={2} label="Hackathon Finals" color={STAT_COLORS[3]} />
         </div>
